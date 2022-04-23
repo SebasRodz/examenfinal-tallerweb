@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-examfinaltallerweb-dev-181842-authRole",
+      "UnauthRoleArn": "arn:aws:iam::056400220005:role/amplify-examfinaltallerweb-dev-181842-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::056400220005:role/amplify-examfinaltallerweb-dev-181842-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-examfinaltallerweb-dev-181842-deployment",
+      "UnauthRoleName": "amplify-examfinaltallerweb-dev-181842-unauthRole",
+      "StackName": "amplify-examfinaltallerweb-dev-181842",
+      "StackId": "arn:aws:cloudformation:us-east-1:056400220005:stack/amplify-examfinaltallerweb-dev-181842/54bd5230-c292-11ec-89d7-0e196272c605",
+      "AmplifyAppId": "d21qxmuvcvmgb9"
+    },
+    "categories": {
+      "auth": {
+        "examfinaltallerwebb77b5032": {}
+      }
+    }
+  }
+}

@@ -1,16 +1,29 @@
+import { Amplify } from 'aws-amplify';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import { I18n } from 'aws-amplify';
+import { translations } from '@aws-amplify/ui-react';
+import awsExports from './aws-exports';
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+Amplify.configure(awsExports);
 
-function App() {
+I18n.putVocabularies(translations);
+I18n.setLanguage('es');
+
+I18n.putVocabularies({
+  es: {
+    'Sign In': 'Registrarse',
+    'Create Account': 'Regístrate',
+  },
+});
+
+function App({ signOut, user }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1>Hello from V2</h1>
-      </header>
+    <div>
+      <h1>Hola {user.username}</h1>
+      <button onClick={signOut}>Desconectarse</button>
     </div>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
