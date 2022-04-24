@@ -10,7 +10,8 @@ export default function Main() {
 
   Axios.defaults.withCredentials = true;
   useEffect(() => {
-    Axios.get("https://examfinal-tallerweback.herokuapp.com/login").then((response) => {
+    // Axios.get("http://localhost:3001/login").then((response) => {
+      Axios.get("https://examfinal-tallerweback.herokuapp.com/login").then((response) => {
       if (response.data.loggedIn == true) {
         setRole(response.data.user[0].role);
       }
