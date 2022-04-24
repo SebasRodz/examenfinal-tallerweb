@@ -12,7 +12,8 @@ export default function Login() {
   Axios.defaults.withCredentials = true;
 
   const login = () => {
-    Axios.post("http://localhost:3001/login", {
+    // Axios.post("http://localhost:3001/login", {
+    Axios.post("https://examfinal-tallerweback.herokuapp.com/login", {
       username: username,
       password: password,
     }).then((response) => {
@@ -25,7 +26,8 @@ export default function Login() {
   };
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/login").then((response) => {
+    // Axios.get("http://localhost:3001/login").then((response) => {
+      Axios.get("https://examfinal-tallerweback.herokuapp.com/login").then((response) => {
       if (response.data.loggedIn == true) {
         setLoginStatus(response.data.user[0].username);
       }

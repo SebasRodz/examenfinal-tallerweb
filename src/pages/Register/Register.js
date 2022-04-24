@@ -8,7 +8,8 @@ function Register() {
   const [passwordReg, setPasswordReg] = useState('')
 
   const register = () => {
-    Axios.post("http://localhost:3001/register", {
+    // Axios.post("http://localhost:3001/register", {
+    Axios.post("https://examfinal-tallerweback.herokuapp.com/register", {
       username: usernameReg,
       password: passwordReg,
     }).then((response) => {
@@ -47,9 +48,9 @@ function Register() {
                 <input type="password" className="form-control" id="usuario" placeholder="Confirmar Contraseña" /> */}
 
               <div className="login-boton mt-4">
-                <Link to={"/login"}>
+                {/* <Link to={"/login"}> */}
                   <button type="button" onClick={register} className="btn btn-primary btn-lg">Registrarse</button>
-                </Link>
+                {/* </Link> */}
               </div>
             </div>
             <span className="login-span">Ya tienes cuenta? <a href="/login">Logueate</a></span>
