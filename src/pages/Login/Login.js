@@ -27,7 +27,7 @@ export default function Login() {
         navigate("/main");
       } else {
         setLoginStatus(response.data[0].username);
-        navigate("/login");
+        navigate("/");
       }
     });
   };

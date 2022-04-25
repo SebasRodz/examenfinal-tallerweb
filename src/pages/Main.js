@@ -24,11 +24,7 @@ export default function Main() {
   }, []);
 
   const deslog = () => {
-    Axios.get("http://localhost:3001/logout").then((response) => {
-      if (response.data.loggedIn == false) {
-        navigate("/login");
-      }
-    });
+    navigate("/");
   }
 
   return (

@@ -43,7 +43,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/registro" element={<Register />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/" element={<Login />}></Route>
           <Route path="/main" element={<Main />} />
         </Routes>
       </BrowserRouter>

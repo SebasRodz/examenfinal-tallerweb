@@ -17,7 +17,7 @@ function Register() {
       password: passwordReg,
     }).then((response) => {
       console.log(response);
-      navigate("/login");
+      navigate("/");
     })
   }
 
@@ -57,7 +57,7 @@ function Register() {
                 {/* </Link> */}
               </div>
             </div>
-            <span className="login-span">Ya tienes cuenta? <a href="/login">Logueate</a></span>
+            <span className="login-span">Ya tienes cuenta? <a href="/">Logueate</a></span>
           </div>
         </div>
       </div>
