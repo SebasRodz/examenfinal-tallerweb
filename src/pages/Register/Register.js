@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
-import { Link } from 'wouter';
+import { useNavigate } from "react-router-dom";
 import './Register.css';
 
 function Register() {
+
+  const navigate = useNavigate();
+  
   const [usernameReg, setUsernameReg] = useState('')
   const [passwordReg, setPasswordReg] = useState('')
 
   const register = () => {
-    // Axios.post("http://localhost:3001/register", {
-    Axios.post("https://examfinal-tallerweback.herokuapp.com/register", {
+    Axios.post("http://localhost:3001/register", {
+    // Axios.post("https://examfinal-tallerweback.herokuapp.com/register", {
       username: usernameReg,
       password: passwordReg,
     }).then((response) => {
       console.log(response);
+      navigate("/login");
     })
   }
 

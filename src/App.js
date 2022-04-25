@@ -44,7 +44,7 @@ function App() {
         <Routes>
           <Route path="/registro" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/" exact render={(props) => <Main />} />
+          <Route path="/main" element={<Main />} />
         </Routes>
       </BrowserRouter>
     </div>

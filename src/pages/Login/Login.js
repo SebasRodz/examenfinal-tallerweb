@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 import './Login.css';
 
 export default function Login() {
+
+  const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -12,27 +15,31 @@ export default function Login() {
   Axios.defaults.withCredentials = true;
 
   const login = () => {
-    // Axios.post("http://localhost:3001/login", {
-    Axios.post("https://examfinal-tallerweback.herokuapp.com/login", {
+    Axios.post("http://localhost:3001/login", {
+    // Axios.post("https://examfinal-tallerweback.herokuapp.com/login", {
       username: username,
       password: password,
     }).then((response) => {
-      if (response.data.message) {
+      console.log(response);
+      if (response.data.loggedIn == true) {
         setLoginStatus(response.data.message);
+        localStorage.setItem("id_rol", JSON.stringify(response.data.user));
+        navigate("/main");
       } else {
         setLoginStatus(response.data[0].username);
+        navigate("/login");
       }
     });
   };
 
-  useEffect(() => {
-    // Axios.get("http://localhost:3001/login").then((response) => {
-      Axios.get("https://examfinal-tallerweback.herokuapp.com/login").then((response) => {
-      if (response.data.loggedIn == true) {
-        setLoginStatus(response.data.user[0].username);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   Axios.get("http://localhost:3001/login").then((response) => {
+  //     // Axios.get("https://examfinal-tallerweback.herokuapp.com/login").then((response) => {
+  //     if (response.data.loggedIn == true) {
+  //       navigate("/main");
+  //     }
+  //   });
+  // }, []);
 
   return (
     <>
@@ -65,8 +72,6 @@ export default function Login() {
                 <button type="button" onClick={login} class="btn btn-primary btn-lg">Ingresar</button>
               </div>
             </div>
-            <h1>{loginStatus}</h1>
-            <h2>{username}</h2>
             <span className="login-span">No tienes cuenta? <a href="/registro">Registrate</a></span>
           </div>
         </div>
